@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "saathib888daf0": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

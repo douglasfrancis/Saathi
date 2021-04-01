@@ -1,0 +1,31 @@
+.confirm-register{
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 10%;
+}
+
+label{
+    color: #424147;
+    
+}
+
+input {
+    width: 60%;
+    height: 8%;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+    padding-left: 1rem;
+    display: block;
+    border: 1px solid  #424147;
+    
+}
+
+form{
+    width: 70vw;
+    height: 60vh;
+    background-color: white;
+    padding-top: 1rem;
+    border-radius: 25px;
+}
+

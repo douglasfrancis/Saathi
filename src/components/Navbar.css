@@ -1,0 +1,37 @@
+.navbar {
+    height: 15vh;
+    width: 100vw;
+    background-color: #424147;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.navbar h2 {
+    color: white;
+}
+
+.navbar button {
+    color: #424147;
+    padding: 0.5rem;
+    float: right;
+    margin: 2rem 1rem;
+    border-radius: 25px;
+    text-transform: uppercase;
+    width: 150px;
+    transition: 0.5s;
+    border: unset;
+}
+
+
+.navbar button:hover {
+    background-color: #95d42b;
+    color: white;
+    cursor: pointer;
+}
+
+#app-name{
+    float: left;
+    display: inline;
+    margin-left: 1rem;
+}
