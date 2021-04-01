@@ -1,0 +1,28 @@
+.error-msg p{
+    color: red;
+    display: inline;
+    font-size: 1rem;
+   
+}
+
+.error-msg{
+    min-height: 40px;
+    width: 80vw;
+    max-width: 1000px;
+    background-color: pink;
+    border: 1px solid red;
+    margin: 4rem 0 1rem 0;
+    border-radius: 5px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cancel{
+    
+    display: inline;
+}
+
+#cancel:hover{
+    cursor: pointer;
+}

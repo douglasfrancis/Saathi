@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
   background-color: #e8ebf2;
@@ -12,5 +15,14 @@
 
 h2 {
   color: #424147;
+}
+
+#app-name{
+  letter-spacing: 0.9rem;
+  font-weight: 900;
+}
+
+#app-name:hover{
+  cursor: pointer;
 }
 

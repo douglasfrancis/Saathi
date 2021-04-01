@@ -47,7 +47,8 @@ function App() {
         <div className="App">
           <header className="App-header">
           <div className="navbar">
-              <h2 id="app-name">Finance App</h2>
+              <h2 id="app-name">Saathi</h2>
+             
               {loggedIn ? <button onClick={signOut}>Sign Out</button> : (<><Link to="/login"> <button>Sign In</button> </Link> <Link to="/register"> <button>Register</button> </Link></>)}
           </div>
           </header>
