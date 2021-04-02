@@ -2,17 +2,18 @@ import './App.css';
 import './components/Navbar.css';
 import Amplify, { Auth } from "aws-amplify";
 import awsconfig from "./aws-exports";
-import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
-import HomePage from './components/HomePage';
+import { Route, BrowserRouter as Router, Switch, Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import LogIn from './components/LogIn';
 import Register from './components/Register';
+import NewsFeed from './components/NewsFeed';
 
 
 Amplify.configure(awsconfig);
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const history = useHistory();
   
 
   useEffect(() => {
@@ -54,7 +55,7 @@ function App() {
           </header>
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <NewsFeed loggedIn = {loggedIn}/>
             </Route>
             <Route path="/login">
               <LogIn onSignIn={onSignIn}/>

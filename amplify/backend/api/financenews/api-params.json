@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/news",
+            "lambdaFunction": "saathib4c85931",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/news"
+        }
+    ],
+    "resourceName": "financenews",
+    "apiName": "financenews",
+    "functionArns": [
+        {
+            "lambdaFunction": "saathib4c85931"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-saathi-dev-113357-authRole",
+        "unAuthRoleName": "amplify-saathi-dev-113357-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "saathib4c85931",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
