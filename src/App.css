@@ -17,12 +17,5 @@ h2 {
   color: #424147;
 }
 
-#app-name{
-  letter-spacing: 0.9rem;
-  font-weight: 900;
-}
 
-#app-name:hover{
-  cursor: pointer;
-}
 

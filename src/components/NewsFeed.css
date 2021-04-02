@@ -6,21 +6,24 @@
     overflow-y: scroll;
     position: absolute;
     top: 20vh;
+    padding: 0.5rem;
 }
 
 #news-container{
     left: 1.5vw;
+    
 }
 
-#api-2{
+#financial-container{
     left: 34.5vw;
+    
 }
 
 #api-3{
     left: 67.5vw;
 }
 
-#news-container p {
+.dashboard-container p {
     color: #424147;
     font-size: 1rem;
 }
@@ -70,6 +73,35 @@
   #not-signed-in{
       color: #424147;
   }
+
+  #input-form{
+      width: unset;
+      height: unset;
+      box-shadow: unset;
+      padding: unset;
+      margin: unset;
+  }
+
+  table{
+      width: 100%;
+  }
+
+  th, td{
+      color: #424147 ;
+      font-size: 1rem !important;
+      padding: 0.5rem;
+      border-bottom: 1px solid #424147 ;
+  }
+
+  th{
+      text-align: left;
+  }
+
+  td{
+      text-align: right;
+  }
+
+
 
 
 

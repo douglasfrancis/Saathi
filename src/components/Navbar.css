@@ -5,6 +5,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar h2 {
@@ -14,7 +16,6 @@
 .navbar button {
     color: #424147;
     padding: 0.5rem;
-    float: right;
     margin: 2rem 1rem;
     border-radius: 25px;
     text-transform: uppercase;
@@ -23,7 +24,6 @@
     border: unset;
 }
 
-
 .navbar button:hover {
     background-color: #95d42b;
     color: white;
@@ -31,7 +31,23 @@
 }
 
 #app-name{
-    float: left;
-    display: inline;
-    margin-left: 1rem;
-}
+    font-size: 1.2rem;
+    letter-spacing: 0.9rem;
+    font-weight: 900;
+    margin-top: 8%;
+  }
+  
+  #app-name:hover{
+    cursor: pointer;
+  }
+  
+  #logo{
+    height: 70%;
+    position: absolute;
+    left: 0;
+    top: 15%;
+  }
+
+  #logo:hover{
+    cursor: pointer;
+  }

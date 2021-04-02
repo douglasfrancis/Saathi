@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import LogIn from './components/LogIn';
 import Register from './components/Register';
 import NewsFeed from './components/NewsFeed';
+import logo from './logo.png';
 
 
 Amplify.configure(awsconfig);
@@ -48,9 +49,10 @@ function App() {
         <div className="App">
           <header className="App-header">
           <div className="navbar">
-              <h2 id="app-name">Saathi</h2>
+          <Link to="/"><img id='logo' src={logo} /></Link> 
+              <Link to="/"><h2 id="app-name">Saathi- Investor Tool</h2></Link> 
              
-              {loggedIn ? <button onClick={signOut}>Sign Out</button> : (<><Link to="/login"> <button>Sign In</button> </Link> <Link to="/register"> <button>Register</button> </Link></>)}
+              {loggedIn ? <button onClick={signOut}>Sign Out</button> : (<div><Link to="/login"> <button>Sign In</button> </Link> <Link to="/register"> <button>Register</button> </Link></div>)}
           </div>
           </header>
           <Switch>

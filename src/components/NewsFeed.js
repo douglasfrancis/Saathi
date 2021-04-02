@@ -9,8 +9,8 @@ Amplify.configure({
     API: {
         endpoints: [
             {
-                name: "financeNewsAPI",
-                endpoint: "https://yahoo-finance15.p.rapidapi.com/api/yahoo/ne"
+                name: "YahooAPI",
+                endpoint: "https://yahoo-finance15.p.rapidapi.com/api/yahoo/"
             }
         ]
     }
@@ -18,51 +18,125 @@ Amplify.configure({
 
 export default function NewsFeed( {loggedIn}) {
 
-    const [newsFeed, setNewsFeed] = useState([])
+    const [newsFeed, setNewsFeed] = useState([]);
+    const [financialData, setFinancialData] = useState(null);
+    const [companyCode, setCompanyCode] = useState("TSLA")
 
 
     useEffect(()=>{
-        getData()
+        //getNews();
+        getFinancials();
     }, []);
 
-    function getData() { 
-        const apiName = 'financeNewsAPI';
-        const path = '/news'; 
-        const myInit = { // OPTIONAL
+    function getNews() { 
+        const apiName = 'YahooAPI';
+        const path = 'ne/news'; 
+        const myInit = { 
     headers: {
-        "x-rapidapi-key": "5eb669d957msh89988095e1765f0p10e856jsnaaec5a0830af",
-        "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com",
+        "x-rapidapi-key": "945191d9a0mshfec942945d59dc1p149c10jsn210938bab534",
+	"x-rapidapi-host": "yahoo-finance15.p.rapidapi.com",
         "useQueryString": "true"
-    }, // OPTIONAL
-    response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
-    
+    }, 
+    response: false, 
 };
 
-API
-  .get(apiName, path, myInit)
-  .then(response => {
-    setNewsFeed(response)
-  })
-  .catch(error => {
-    console.log(error.response);
- });
-      };
+        API.get(apiName, path, myInit).then(response => {
+            setNewsFeed(response)
+        }).catch(error => {
+            console.log(error.response);
+        });
+    };
+
+    function getFinancials() { 
+        
+        const apiName = 'YahooAPI';
+        const path = `qu/quote/${companyCode}/financial-data`; 
+        const myInit = { 
+    headers: {
+        "x-rapidapi-key": "945191d9a0mshfec942945d59dc1p149c10jsn210938bab534",
+	"x-rapidapi-host": "yahoo-finance15.p.rapidapi.com",
+        "useQueryString": "true"
+    }, 
+    response: false, 
+};
+
+         API.get(apiName, path, myInit).then(response => {
+            setFinancialData(response.financialData);
+            console.log(response)
+        }).catch(error => {
+            console.log(error.response);
+        });
+    };
       
-    
     return (
         <div className="dashboard">
             {loggedIn ? (<><div className="dashboard-container" id="news-container">
             <h2>News Feed</h2>
             {newsFeed.length < 1 ? (<div class="loader"></div>) :(
-                newsFeed.map(news => {
-                    return <Article title={news.title} link={news.link} date={news.pubDate}/>
+                newsFeed.map((news, i) => {
+                    return <Article key={i} title={news.title} link={news.link} date={news.pubDate}/>
                 })
             )}
             </div>
 
-            <div className="dashboard-container" id="api-2" >
-            <h2>Other Api</h2>
-            
+            <div className="dashboard-container" id="financial-container" >
+            <h2>Company Financial Data</h2>
+            <form id="input-form">
+                <input onKeyPress={(e)=>{e.target.keyCode === 13 && e.preventDefault(); getFinancials()}} type="text" value={companyCode} onChange={(e)=>{
+                    setCompanyCode(e.target.value)}}/>
+            </form>
+           
+                <div>
+                    {financialData ? (<>
+                    <p>Recommendation: {financialData.recommendationKey}</p>
+                    <p>Based on {financialData.numberOfAnalystOpinions.fmt} analyst opinions</p>
+                    <table >
+                        <tbody>
+                            <tr>
+                            <th scope="row">Current Price</th>
+                            <td>${financialData.currentPrice.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">High Price</th>
+                            <td>${financialData.targetHighPrice.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Low Price</th>
+                            <td>${financialData.targetLowPrice.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Mean Price</th>
+                            <td>${financialData.targetMeanPrice.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Revenue</th>
+                            <td>${financialData.totalRevenue.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Gross Profits</th>
+                            <td>${financialData.grossProfits.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Profit Margin</th>
+                            <td>{financialData.profitMargins.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Total Cash</th>
+                            <td>${financialData.totalCash.fmt}</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">Total Debt</th>
+                            <td>${financialData.totalDebt.fmt}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </>
+                    ) : (
+                        <p>No Data for that Company code</p>
+                    )}
+
+                    
+                </div>
             </div>
 
             <div className="dashboard-container" id="api-3">
