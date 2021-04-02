@@ -14,6 +14,18 @@
     "categories": {
       "auth": {
         "saathib888daf0": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3s76rtjhloxvy",
+          "type": "cicd"
+        }
+      },
+      "function": {
+        "saathib4c85931": {
+          "deploymentBucketName": "amplify-saathi-dev-113357-deployment",
+          "s3Key": "amplify-builds/saathib4c85931-342b786e2f58654a4934-build.zip"
+        }
       }
     }
   }
