@@ -21,6 +21,17 @@
 
 #api-3{
     left: 67.5vw;
+    transition: 0.3s;
+}
+
+#api-3:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+#add-widget{
+    height: 30%;
+    margin-top: 40%;
+    
 }
 
 .dashboard-container p {
@@ -60,7 +71,7 @@
     border-top: 16px solid #424147; 
     border-radius: 50%;
     width: 120px;
-    margin: 20% auto;
+    margin: 30% auto;
     height:120px ;
     animation: spin 2s linear infinite;
   }
@@ -100,6 +111,8 @@
   td{
       text-align: right;
   }
+
+
 
 
 

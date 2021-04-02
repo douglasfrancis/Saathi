@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Amplify, { API } from 'aws-amplify';
 import Article from './Article';
-import './NewsFeed.css';
+import './Dashboard.css';
 import { Link } from 'react-router-dom';
+import add from '../add.png';
 
 Amplify.configure({
 
@@ -140,7 +141,7 @@ export default function NewsFeed( {loggedIn}) {
             </div>
 
             <div className="dashboard-container" id="api-3">
-            <h2>Other Api</h2>
+            <img id='add-widget' src={add}/>
             
             </div> </>) :
             (

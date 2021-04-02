@@ -1,5 +1,5 @@
 import React from 'react';
-import './NewsFeed.css';
+import './Dashboard.css';
 
 export default function Article( { title, link, date }) {
     return (
